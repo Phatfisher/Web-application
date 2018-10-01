@@ -1,0 +1,20 @@
+﻿@model Website1.Models.WebResultsUrlViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "WebUrl Results";
+}
+<h2>@ViewBag.Title</h2>
+<h3> Here are the photos found for the given URL </h3>
+<div class="row">
+        @{
+            foreach (string x in Model.UrlList)
+            {
+                <div class="col-sm-12 col-md-2">
+                    <img src=@x />
+                </div>
+            }
+        }
+    </div>
+

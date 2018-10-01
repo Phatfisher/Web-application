@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Multiplication Results";
+
+}
+<h1>Multiplication Results</h1>
+
+<h2>
+    
+    The results of @Model.Int1 x @Model.Int2:
+</h2>
+<table class=" table table-bordered">
+    <thread>
+        <tr>
+            <th scope="col"></th>
+            @{
+                int i;
+
+                for (i = 0; i < 13; i++)
+                {
+                    if (i != Model.Int1)
+                    {
+                        <th scope="col">@i</th>
+                    }
+                    else
+                    {
+                        <td bgcolor="#00FF00">@Model.Int1</td>
+                    }
+                }
+            }
+
+        </tr>
+    </thread>
+    <tbody>
+        @{
+            int x;
+            int ix;
+            for (i = 0; i < 13; i++)
+            {
+                <tr>
+                    @{ if (i != Model.Int2)
+                        {
+                            <th scope="row">@i</th>
+                            for (x = 0; x < 13; x++)
+                            {
+                                ix = i * x;
+                                <td>@ix</td>
+                            }
+                        }
+                        else
+                        {
+                            <td bgcolor="#00FF00">@Model.Int2</td>
+                            for (x = 0; x < 13; x++)
+                            {
+                                ix = i * x;
+                               
+                                if (i.Equals(@Model.Int2) && x.Equals(@Model.Int1))
+                                {
+                                    <td bgcolor="#00FFF0">@ix</td>
+                                }
+                                else
+                                {
+                                    <td>@ix</td>
+                                }
+                            }
+                        }
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

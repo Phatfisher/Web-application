@@ -1,0 +1,26 @@
+﻿@model Website1.Models.WebUrlModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Web Pictures";
+}
+
+<h1> @ViewBag.Title</h1>
+
+@using (Html.BeginForm("WebUrl", "Home"))
+{
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Url)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Url)
+
+            </div>
+        </div>
+        <div class="col-sm-push-9">@Html.ValidationSummary()</div>
+    </div>
+    <p> <input type="submit" value="Submit"> </p>
+}
